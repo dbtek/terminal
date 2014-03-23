@@ -1,0 +1,18 @@
+<div ng-controller="CashierCtrl">
+	<div class="col-lg-3" ng-repeat="product in products">
+		<div class="thumbnail text-center">
+			<div class="price">
+				{{ product.price }} TL
+			</div>
+			<a class="btn btn-primary btn-block">
+				{{ product.name }}
+			</a>
+		</div>
+	</div>
+	<div ng-if="products.length < 1">
+		<p class="alert alert-danger">
+			Ürün bulunamadı.
+		</p>
+		<a href="#product/add" class="btn btn-primary">Yeni Ürün Ekle</a>
+	</div>
+</div>

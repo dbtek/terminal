@@ -1,0 +1,28 @@
+<div ng-controller="ProductCtrl">
+  <form class="form form-horizontal" ng-if="!addedProduct">
+    <div class="form-group">
+      <label for="name" class="col-sm-3 control-label">İsim</label>
+      <div class="col-sm-5">
+        <input type="text" class="form-control" id="isim" placeholder="Ürün ismi" ng-model="product.name">
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="fiyat" class="col-sm-3 control-label">Fiyat</label>
+      <div class="col-sm-3">
+        <input type="text" class="form-control" id="fiyat" placeholder="Ürün fiyatı" ng-model="product.price">
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-sm-offset-3 col-sm-10">
+        <button type="button" class="btn btn-primary" ng-click="addProduct()">Ekle</button>
+      </div>
+    </div>
+  </form>
+
+  <div ng-if="addedProduct">
+    <p class="alert alert-success">
+      {{addedProduct.name}} isimli ürün başarıyla eklendi.
+    </p>
+    <a href="#" class="btn btn-primary">Anasayfa</a>
+  </div>
+</div>
