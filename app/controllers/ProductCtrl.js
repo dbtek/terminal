@@ -31,7 +31,13 @@ ProductAddCtrl = function($scope, $rootScope, Websql, $routeParams, $location) {
 ProductEditCtrl = function($scope, $rootScope, Websql, $routeParams, $location) {
   $rootScope.activePage = 'product-edit';
   $scope.getProductById($routeParams.productId, function(product) {
-    $scope.product = product;
+    $scope.product = angular.copy(product);
     $scope.$apply();
   });
+
+  $scope.saveProduct = function(){
+    $scope.updateProduct($scope.product.id, {'name': $scope.product.name});
+    $scope.updateProduct($scope.product.id, {'price': $scope.product.price});
+    $location.path('/product/list');
+  };
 };

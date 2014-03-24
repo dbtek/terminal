@@ -18,4 +18,6 @@ app.config(function ($routeProvider, $locationProvider) {
     $routeProvider.when('/product/edit/:productId', {
         templateUrl: 'templates/product/edit.html'
     });
+
+    $routeProvider.otherwise({redirectTo: '/'});
 });
