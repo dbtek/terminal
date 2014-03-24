@@ -39,6 +39,10 @@ var MainCtrl = function($scope, Websql) {
    });
  };
 
+ $scope.deleteProductById = function(id, callback){
+   $scope.executeQuery(Websql.del("product", {"id": id}), callback)
+ };
+
   // Create product table
   $scope.executeQuery(
     Websql.createTable('product', {

@@ -1,0 +1,32 @@
+<div ng-controller="ProductListCtrl">
+  <div class="page-header">
+    <h3>Ürünler</h3>
+  </div>
+  <div class="alert alert-danger notification fade in" ng-show="productIdToBeDeleted">
+    <h5>Seçili ürün silinecek. Emin misiniz?</h5>
+    <div>
+      <button type="button" class="btn btn-default" ng-click="productIdToBeDeleted = 0">İptal</button>
+      <button type="button" class="btn btn-danger" ng-click="deleteProduct(productIdToBeDeleted)">Sil</button>
+    </div>
+    <div class="clearfix"></div>
+  </div><!-- end alert -->
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Ürün</th>
+        <th>Fiyat</th>
+        <th>#</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="product in products">
+        <td>{{product.name}}</td>
+        <td>{{product.price}}</td>
+        <td>
+          <a href="#product/edit/{{product.id}}" class="btn btn-default"><span class="glyphicon glyphicon-edit"></span></a>
+          <button type="button" class="btn btn-danger" ng-click="deleteProduct(product.id)" ng-disabled="productIdToBeDeleted==product.id"><span class="glyphicon glyphicon-trash"></span></button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
