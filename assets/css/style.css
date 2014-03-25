@@ -14,3 +14,8 @@
 .alert p {
 	color: white;
 }
+
+.table .actions {
+	max-width: 40px;
+	text-align: center;
+}
