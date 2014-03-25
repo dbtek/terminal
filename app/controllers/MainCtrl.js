@@ -1,7 +1,4 @@
-var MainCtrl = function($scope, Websql) {
-  // Open database
-  $scope.db = openDatabase('kerms', '1.0', 'Kermes DB', 2 * 1024 * 1024);
-
+var MainCtrl = function($scope, Websql, $location) {
   /**
   * Executes Web Sql queries.
   * @param {string} query - Sql query to be executed.
@@ -21,7 +18,7 @@ var MainCtrl = function($scope, Websql) {
     /**
      * Gets all products from the database and applies them on scope.
      */
-    getProducts: function() {
+     getProducts: function() {
       $scope.db.transaction(function (tx) {
         executeQuery(Websql.selectAll('product'), function(results) {
           $scope.products = [];
@@ -48,28 +45,38 @@ var MainCtrl = function($scope, Websql) {
     }
   };
 
-  // Create product table
-  executeQuery(
-    Websql.createTable('product', {
-      'id':{
-        'type': 'INTEGER',
-        'null': 'NOT NULL',
-        'primary': true,
-        'auto_increment': true
-      },
-      'created':{
-        'type': 'TIMESTAMP',
-        'null': 'NOT NULL',
-        'default': 'CURRENT_TIMESTAMP'
-      },
-      'name':{
-        'type': 'TEXT',
-        'null': 'NOT NULL'
-      },
-      'price': {
-        'type': 'TEXT',
-        'null': 'NOT NULL'
-      }
-    })
-  );
+  $scope.checkBrowser = function() {
+    if(typeof(openDatabase) == 'undefined') // redirect to error page
+      $location.path('/browser-not-supported');
+  };
+
+  if(typeof(openDatabase) != 'undefined') {
+    // Open database
+    $scope.db = openDatabase('kerms', '1.0', 'Kermes DB', 2 * 1024 * 1024);
+
+    // Create product table
+    executeQuery(
+      Websql.createTable('product', {
+        'id':{
+          'type': 'INTEGER',
+          'null': 'NOT NULL',
+          'primary': true,
+          'auto_increment': true
+        },
+        'created':{
+          'type': 'TIMESTAMP',
+          'null': 'NOT NULL',
+          'default': 'CURRENT_TIMESTAMP'
+        },
+        'name':{
+          'type': 'TEXT',
+          'null': 'NOT NULL'
+        },
+        'price': {
+          'type': 'TEXT',
+          'null': 'NOT NULL'
+        }
+      })
+    );
+  }
 };
