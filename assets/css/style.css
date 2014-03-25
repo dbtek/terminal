@@ -10,3 +10,7 @@
 	margin-top: 15px;
 	border-bottom: double;
 }
+
+.alert p {
+	color: white;
+}

@@ -3,8 +3,10 @@
     <h3>Ürün Ekle</h3>
   </div>
   <div class="alert alert-danger notification fade in" ng-show="errorMessage">
-    {{errorMessage}}
-    <button type="button" class="btn btn-danger btn-xs pull-right" ng-click="errorMessage = null">&times;</button>
+    <p>
+      {{errorMessage}}
+      <button type="button" class="btn btn-danger btn-xs pull-right" ng-click="errorMessage = null">&times;</button>
+    </p>
     <div class="clearfix"></div>
   </div><!-- end alert -->
   <form class="form form-horizontal" ng-if="!addedProduct">

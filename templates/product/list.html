@@ -3,7 +3,8 @@
     <h3>Ürünler</h3>
   </div>
   <div class="alert alert-danger notification fade in" ng-show="productIdToBeDeleted">
-    <h5>Seçili ürün silinecek. Emin misiniz?</h5>
+    <p>Seçili ürün silinecek. Emin misiniz?</p>
+    <br/>
     <div>
       <button type="button" class="btn btn-default" ng-click="productIdToBeDeleted = 0">İptal</button>
       <button type="button" class="btn btn-danger" ng-click="deleteProduct(productIdToBeDeleted)">Sil</button>
