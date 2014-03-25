@@ -8,7 +8,7 @@ var MainCtrl = function($scope, Websql) {
   * @param {function} callback - Callback function to get result set.
   * @function
   */
-  $scope.executeQuery = function(query, callback) {
+  var executeQuery = function(query, callback) {
     $scope.db.transaction(function (tx) {
       tx.executeSql(query, [], function(tx,results) {
         if(callback)
@@ -17,37 +17,39 @@ var MainCtrl = function($scope, Websql) {
     });
   };
 
-  /**
-  * Gets all products from the database and applies them on scope.
-  */
-  $scope.getProducts = function() {
-    $scope.db.transaction(function (tx) {
-      $scope.executeQuery(Websql.selectAll('product'), function(results) {
-        $scope.products = [];
-        for(i=0; i<results.rows.length; i++){
-          $scope.products.push(results.rows.item(i));
-        }
-        $scope.$apply();
+  $scope.DAO = {
+    /**
+     * Gets all products from the database and applies them on scope.
+     */
+    getProducts: function() {
+      $scope.db.transaction(function (tx) {
+        executeQuery(Websql.selectAll('product'), function(results) {
+          $scope.products = [];
+          for(i=0; i<results.rows.length; i++){
+            $scope.products.push(results.rows.item(i));
+          }
+          $scope.$apply();
+        });
       });
-    });
-  };
-
-  $scope.getProductById = function(id, callback){
-    $scope.executeQuery(Websql.select('product', {'id': id }), function(results) {
-      callback(results.rows.item(0));
-    });
-  };
-
-  $scope.updateProduct = function(id, fields, callback) {
-    $scope.executeQuery(Websql.update('product', fields, {'id': id}), callback);
-  };
-
-  $scope.deleteProductById = function(id, callback){
-    $scope.executeQuery(Websql.del('product', {'id': id}), callback)
+    },
+    getProductById: function(id, callback){
+      executeQuery(Websql.select('product', {'id': id }), function(results) {
+        callback(results.rows.item(0));
+      });
+    },
+    addProduct: function(name, price, callback) {
+      executeQuery(Websql.insert('product', {'name': name, 'price': price}), callback);
+    },
+    updateProduct: function(id, fields, callback) {
+      executeQuery(Websql.update('product', fields, {'id': id}), callback);
+    },
+    deleteProductById: function(id, callback){
+      executeQuery(Websql.del('product', {'id': id}), callback)
+    }
   };
 
   // Create product table
-  $scope.executeQuery(
+  executeQuery(
     Websql.createTable('product', {
       'id':{
         'type': 'INTEGER',

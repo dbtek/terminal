@@ -1,4 +1,4 @@
 CashierCtrl = function($scope, $rootScope) {
-	$scope.getProducts();
+	$scope.DAO.getProducts();
 	$rootScope.activePage = 'cashier';
 };
