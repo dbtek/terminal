@@ -1,7 +1,12 @@
 #content {
-	margin-top: 80px;
+  margin-top: 80px;
 }
-
 .price {
-	font-size: 43px;
+	font-size: 53px;
+}
+.price .fa {
+	font-size: 22px;
+	vertical-align: top;
+	margin-top: 15px;
+	border-bottom: double;
 }
