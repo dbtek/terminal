@@ -1,6 +1,6 @@
 'use strict';
 
-var app = angular.module('kerms', ['ngRoute','paulocaldeira17.angular.websql']);
+var app = angular.module('kerms', ['ngRoute','angular-websql']);
 
 app.config(function ($routeProvider, $locationProvider) {
   $routeProvider.when('/', {
