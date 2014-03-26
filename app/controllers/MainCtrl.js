@@ -6,7 +6,7 @@ var MainCtrl = function($scope, $webSql, $location) {
     /**
      * Gets all products from the database and applies them on scope.
      */
-    getProducts: function() {
+     getProducts: function() {
       db.selectAll('product', function(results) {
         $scope.products = [];
         for(i=0; i<results.rows.length; i++){
@@ -32,38 +32,34 @@ var MainCtrl = function($scope, $webSql, $location) {
   };
 
   $scope.checkBrowser = function() {
-    if(typeof(openDatabase) == 'undefined') // redirect to error page
+    if(typeof(db) == 'undefined') // redirect to error page
       $location.path('/browser-not-supported');
   };
 
-  if(typeof(openDatabase) != 'undefined') {
-    // Open database
-    db = $webSql.openDatabase('kerms', '1.0', 'Kermes DB', 2 * 1024 * 1024);
+  db = $webSql.openDatabase('kerms', '1.0', 'Kermes DB', 2 * 1024 * 1024);
 
-    /*// Create product table
-    executeQuery(
-      $webSql.createTable('product', {
-        'id':{
-          'type': 'INTEGER',
-          'null': 'NOT NULL',
-          'primary': true,
-          'auto_increment': true
-        },
-        'created':{
-          'type': 'TIMESTAMP',
-          'null': 'NOT NULL',
-          'default': 'CURRENT_TIMESTAMP'
-        },
-        'name':{
-          'type': 'TEXT',
-          'null': 'NOT NULL'
-        },
-        'price': {
-          'type': 'TEXT',
-          'null': 'NOT NULL'
-        }
-      })
-    );
-*/
+  if(db) {
+    // Create product table
+    db.createTable('product', {
+      'id':{
+        'type': 'INTEGER',
+        'null': 'NOT NULL',
+        'primary': true,
+        'auto_increment': true
+      },
+      'created':{
+        'type': 'TIMESTAMP',
+        'null': 'NOT NULL',
+        'default': 'CURRENT_TIMESTAMP'
+      },
+      'name':{
+        'type': 'TEXT',
+        'null': 'NOT NULL'
+      },
+      'price': {
+        'type': 'TEXT',
+        'null': 'NOT NULL'
+      }
+    });
   }
 };
