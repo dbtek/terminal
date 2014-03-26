@@ -1,4 +1,4 @@
-ProductListCtrl = function($scope, $rootScope, Websql, $routeParams, $location) {
+ProductListCtrl = function($scope, $rootScope, $routeParams, $location) {
   $scope.checkBrowser();
   $rootScope.activePage = 'product-list';
   $scope.DAO.getProducts();
@@ -15,7 +15,7 @@ ProductListCtrl = function($scope, $rootScope, Websql, $routeParams, $location) 
   }
 };
 
-ProductAddCtrl = function($scope, $rootScope, Websql, $routeParams, $location) {
+ProductAddCtrl = function($scope, $rootScope, $routeParams, $location) {
   $scope.checkBrowser();
   $scope.product = {};
   $rootScope.activePage = 'product-add';
@@ -35,7 +35,7 @@ ProductAddCtrl = function($scope, $rootScope, Websql, $routeParams, $location) {
   };
 };
 
-ProductEditCtrl = function($scope, $rootScope, Websql, $routeParams, $location) {
+ProductEditCtrl = function($scope, $rootScope, $routeParams, $location) {
   $scope.checkBrowser();
   $rootScope.activePage = 'product-edit';
   $scope.DAO.getProductById($routeParams.productId, function(product) {
