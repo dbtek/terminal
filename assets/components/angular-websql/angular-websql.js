@@ -1,3 +1,8 @@
+/**
+ * angular-websql
+ * Helps you generate and run websql queries with angular services.
+ * © MIT License
+ */
 "use strict";
 angular.module("angular-websql", []).factory("$webSql", [
     function() {
@@ -5,11 +10,10 @@ angular.module("angular-websql", []).factory("$webSql", [
         openDatabase: function(dbName, version, desc, size) {
           try {
             var db = openDatabase(dbName, version, desc, size);
-            if (typeof(openDatabase) == 'undefined')
+            if (typeof(openDatabase) == "undefined")
               throw "Browser does not support web sql";
             return {
               executeQuery: function(query, callback) {
-                console.log(query);
                 db.transaction(function(tx) {
                   tx.executeSql(query, [], function(tx, results) {
                     if (callback)
