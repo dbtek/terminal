@@ -7,11 +7,11 @@
     <br/>
     <div>
       <button type="button" class="btn btn-default" ng-click="productIdToBeDeleted = 0">İptal</button>
-      <button type="button" class="btn btn-danger" ng-click="deleteProduct(productIdToBeDeleted)">Sil</button>
+      <button type="button" class="btn btn-primary" ng-click="deleteProduct(productIdToBeDeleted)">Sil</button>
     </div>
     <div class="clearfix"></div>
   </div><!-- end alert -->
-  <table class="table table-bordered table-striped">
+  <table class="table table-hover table-striped">
     <thead>
       <tr>
         <th>Ürün</th>
@@ -22,7 +22,7 @@
     <tbody>
       <tr ng-repeat="product in products">
         <td>{{product.name}}</td>
-        <td>{{product.price}}</td>
+        <td>{{product.price}} <i class="fa fa-try"></i></td>
         <td class="actions">
           <a href="#product/edit/{{product.id}}" class="btn btn-default"><span class="glyphicon glyphicon-edit"></span></a>
           <button type="button" class="btn btn-danger" ng-click="deleteProduct(product.id)" ng-disabled="productIdToBeDeleted==product.id"><span class="glyphicon glyphicon-trash"></span></button>
