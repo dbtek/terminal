@@ -1,7 +1,7 @@
 #content {
   margin-top: 80px;
 }
-i { font-size: 14px; }
+i { font-size: 0.9em; }
 .price {
 	font-size: 53px;
 }
@@ -10,6 +10,9 @@ i { font-size: 14px; }
 	vertical-align: top;
 	margin-top: 15px;
 	border-bottom: double;
+}
+.price .product {
+  font-size: 15px;
 }
 .alert p {
 	color: white;

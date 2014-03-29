@@ -28,6 +28,14 @@ var MainCtrl = function($scope, $webSql, $location) {
     },
     deleteProductById: function(id, callback) {
       db.del('product', {'id': id}, callback);
+    },
+    addSale: function(productId, amount, callback){
+      db.insert('sale', {'productId': productId, 'amount': amount}, callback);
+    },
+    getSale: function(id, callback){
+      db.select('sale', {'id': id }, function(results) {
+        callback(results.rows.item(0));
+      });
     }
   };
 
@@ -58,6 +66,29 @@ var MainCtrl = function($scope, $webSql, $location) {
       },
       'price': {
         'type': 'TEXT',
+        'null': 'NOT NULL'
+      }
+    });
+
+    // Create sale table
+    db.createTable('sale', {
+      'id':{
+        'type': 'INTEGER',
+        'null': 'NOT NULL',
+        'primary': true,
+        'auto_increment': true
+      },
+      'created':{
+        'type': 'TIMESTAMP',
+        'null': 'NOT NULL',
+        'default': 'CURRENT_TIMESTAMP'
+      },
+      'productId':{
+        'type': 'INTEGER',
+        'null': 'NOT NULL'
+      },
+      'amount': {
+        'type': 'INTEGER',
         'null': 'NOT NULL'
       }
     });
