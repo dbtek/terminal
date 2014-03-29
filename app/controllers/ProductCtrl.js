@@ -38,14 +38,22 @@ ProductAddCtrl = function($scope, $rootScope, $routeParams, $location) {
 ProductEditCtrl = function($scope, $rootScope, $routeParams, $location) {
   $scope.checkBrowser();
   $rootScope.activePage = 'product-edit';
+
   $scope.DAO.getProductById($routeParams.productId, function(product) {
     $scope.product = angular.copy(product);
     $scope.$apply();
   });
 
+
+
   $scope.saveProduct = function(){
-    $scope.DAO.updateProduct($scope.product.id, {'name': $scope.product.name});
-    $scope.DAO.updateProduct($scope.product.id, {'price': $scope.product.price});
-    $location.path('/product/list');
+    if($scope.product.price >= 0) {
+      $scope.errorMessage = null;
+      $scope.DAO.updateProduct($scope.product.id, {'name': $scope.product.name});
+      $scope.DAO.updateProduct($scope.product.id, {'price': $scope.product.price});
+      $location.path('/product/list');
+    }
+    else
+      $scope.errorMessage = 'Lütfen geçerli bir fiyat bilgisi giriniz.';
   };
 };

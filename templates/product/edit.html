@@ -2,6 +2,13 @@
   <div class="page-header">
     <h3>Ürün Güncelle</h3>
   </div>
+  <div class="alert alert-danger notification fade in" ng-show="errorMessage">
+    <p>
+      {{errorMessage}}
+      <button type="button" class="btn btn-danger btn-xs pull-right" ng-click="errorMessage = null">&times;</button>
+    </p>
+    <div class="clearfix"></div>
+  </div><!-- end alert -->
   <form class="form form-horizontal" ng-if="!editedProduct">
     <div class="form-group">
       <label for="name" class="col-sm-3 control-label">İsim</label>
@@ -22,12 +29,4 @@
       </div>
     </div>
   </form>
-
-  <div ng-if="editedProduct">
-    <p class="alert alert-success">
-      {{editedProduct.name}} isimli ürün başarıyla eklendi.
-    </p>
-    <a href="#" class="btn btn-primary">Anasayfa</a>
-    <a href="#product/list" class="btn btn-primary">Ürünler</a>
-  </div>
 </div>
