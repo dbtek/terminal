@@ -1,3 +1,5 @@
+if(!local) var local = {};
+
 local.tr = {
   cashier: 'Kasa',
   products: 'Ürünler',
@@ -14,7 +16,7 @@ local.tr = {
   // Product add page
   add: 'Ekle',
   productName: 'Ürün İsmi',
-  productPrice: 'Ürün Fiyatı'
+  productPrice: 'Ürün Fiyatı',
   name: 'İsim',
   // Product edit page
   updateProduct: 'Ürün Güncelle',

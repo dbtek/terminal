@@ -3,7 +3,7 @@
     <div class="form-group">
       <label class="col-sm-6 control-label">Dil</label>
       <div class="col-sm-6">
-        <select class="form-control" ng-model="settings.language" ng-options="language for language in languages">
+        <select class="form-control" ng-model="settings.language" ng-options="language.label for language in languages">
         </select>
       </div>
     </div>
