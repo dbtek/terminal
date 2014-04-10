@@ -7,7 +7,7 @@
 	<link href="assets/css/style.css" rel="stylesheet">
 </head>
 
-<body>
+<body ng-controller="MainCtrl">
 	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
 		<div class="container-fluid">
 			<!-- Brand and toggle get grouped for better mobile display -->
@@ -24,9 +24,10 @@
 			<!-- Collect the nav links, forms, and other content for toggling -->
 			<div class="collapse navbar-collapse" id="kerms-nav">
 				<ul class="nav navbar-nav">
-					<li ng-class="{true: 'active'}[activePage=='cashier']"><a href="#">Kasa</a></li>
-					<li ng-class="{true: 'active'}[activePage=='product-list']"><a href="#product/list">Ürünler</a></li>
-					<li ng-class="{true: 'active'}[activePage=='product-add']"><a href="#product/add">Ürün Ekle</a></li>
+					<li ng-class="{true: 'active'}[activePage=='cashier']"><a href="#">{{strings.cashier}}</a></li>
+					<li ng-class="{true: 'active'}[activePage=='product-list']"><a href="#product/list">{{strings.products}}</a></li>
+					<li ng-class="{true: 'active'}[activePage=='product-add']"><a href="#product/add">{{strings.addProduct}}</a></li>
+					<li ng-class="{true: 'active'}[activePage=='settings']"><a href="#settings">{{strings.settings}}</a></li>
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
 				</ul>
@@ -34,7 +35,7 @@
 		</div><!-- /.container-fluid -->
 	</nav>
 
-	<div class="container" id="content" ng-controller="MainCtrl">
+	<div class="container" id="content">
 		<ng-view></ng-view>
 	</div>
 
@@ -44,6 +45,7 @@
 	<script type="text/javascript" src="assets/components/angular/angular.min.js"></script>
 	<script type="text/javascript" src="assets/components/angular-route/angular-route.min.js"></script>
 	<script type="text/javascript" src="assets/components/angular-websql/angular-websql.min.js"></script>
+	<script type="text/javascript" src="app/local/tr.js"></script>
 	<script type="text/javascript" src="app/app.js"></script>
 
 	<script src="app/controllers/MainCtrl.js"></script>
@@ -51,5 +53,6 @@
 	<script src="app/controllers/ProductCtrl.js"></script>
 	<script src="app/controllers/BillCtrl.js"></script>
 	<script src="app/controllers/SettingsCtrl.js"></script>
+
 </body>
 </html>

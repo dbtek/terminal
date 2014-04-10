@@ -1,6 +1,13 @@
 var MainCtrl = function($scope, $webSql, $location) {
   // $webSql Database Object. Defined later.
   var db;
+  $scope.local = local;
+  $scope.languages  = [{key:'tr', label:'Türkçe'}, {key: 'en', label:'English'}];
+  $scope.settings = { language: $scope.languages[0]};
+
+  $scope.$watch('settings', function() {
+    $scope.strings = local[$scope.settings.language.key];
+  },true);
 
   $scope.DAO = {
     /**
@@ -43,8 +50,6 @@ var MainCtrl = function($scope, $webSql, $location) {
     if(typeof(db) == 'undefined') // redirect to error page
       $location.path('/browser-not-supported');
   };
-
-  $scope.settings = { language: 'Türkçe' };
 
   db = $webSql.openDatabase('kerms', '1.0', 'Kermes DB', 2 * 1024 * 1024);
 
