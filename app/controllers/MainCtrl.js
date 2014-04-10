@@ -44,6 +44,8 @@ var MainCtrl = function($scope, $webSql, $location) {
       $location.path('/browser-not-supported');
   };
 
+  $scope.settings = { language: 'Türkçe' };
+
   db = $webSql.openDatabase('kerms', '1.0', 'Kermes DB', 2 * 1024 * 1024);
 
   if(db) {
