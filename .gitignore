@@ -1,6 +1,6 @@
-assets/*src
-assets/*/src/*
-assets/*/src/*
+assets/*/src
+assets/*/*src/*
+assets/*/*/*src/*
 assets/*.html
 assets/*.md
 assets/*.yml
