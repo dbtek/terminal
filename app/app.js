@@ -23,6 +23,10 @@ app.config(function ($routeProvider, $locationProvider) {
     templateUrl: 'templates/bill.html'
   });
 
+  $routeProvider.when('/settings', {
+    templateUrl: 'templates/settings.html'
+  });
+
   $routeProvider.when('/browser-not-supported', {
     templateUrl: 'templates/browserNotSupported.html'
   });
