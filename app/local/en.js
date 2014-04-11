@@ -3,6 +3,7 @@ if(!local) var local = {};
 local.en = {
   language: 'Language',
   autoPrint: 'Auto print checks',
+  currency: 'Currency',
   cashier: 'Cashier',
   products: 'Products',
   addProduct: 'Add Product',

@@ -3,7 +3,8 @@ var MainCtrl = function($scope, $webSql, $location, $cookies) {
   var db;
   $scope.local = local; // localization strings
   $scope.languages  = [{key: 'en', label:'English'}, {key:'tr', label:'Türkçe'}];
-  var defaultSettings = { language: $scope.languages[0], autoPrint: true};
+  $scope.currencies = [{key: 'USD', label:'USD', icon: 'fa fa-usd'}, {key: 'TRY', label: 'Türk Lirası', icon:'fa fa-try'}, {key: 'EUR', label:'Euro', icon:'fa fa-euro'}]
+  var defaultSettings = { language: $scope.languages[0], autoPrint: true, currency: $scope.currencies[0]};
 
   if($cookies.settings) $scope.settings = JSON.parse($cookies.settings);
   if(!$scope.settings)
