@@ -60,7 +60,7 @@ var MainCtrl = function($scope, $webSql, $location, $cookies) {
       $location.path('/browser-not-supported');
   };
 
-  db = $webSql.openDatabase('kerms', '1.0', 'Kermes DB', 2 * 1024 * 1024);
+  db = $webSql.openDatabase('pos-terminal', '1.0', 'Pos DB', 2 * 1024 * 1024);
 
   if(db) {
     // Create product table
