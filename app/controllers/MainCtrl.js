@@ -1,12 +1,20 @@
-var MainCtrl = function($scope, $webSql, $location) {
+var MainCtrl = function($scope, $webSql, $location, $cookies) {
   // $webSql Database Object. Defined later.
   var db;
-  $scope.local = local;
-  $scope.languages  = [{key:'tr', label:'Türkçe'}, {key: 'en', label:'English'}];
-  $scope.settings = { language: $scope.languages[0]};
+  $scope.local = local; // localization strings
+  $scope.languages  = [{key: 'en', label:'English'}, {key:'tr', label:'Türkçe'}];
+  var defaultSettings = { language: $scope.languages[0], autoPrint: true};
+
+  if($cookies.settings) $scope.settings = JSON.parse($cookies.settings);
+  if(!$scope.settings)
+    $scope.settings = defaultSettings;
 
   $scope.$watch('settings', function() {
-    $scope.strings = local[$scope.settings.language.key];
+    console.log($scope.settings);
+    if($scope.settings && $scope.settings.language) {
+      $scope.strings = local[$scope.settings.language.key];
+      $cookies.settings = JSON.stringify($scope.settings);
+    }
   },true);
 
   $scope.DAO = {

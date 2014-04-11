@@ -1,6 +1,8 @@
 if(!local) var local = {};
 
 local.tr = {
+  language: 'Dil',
+  autoPrint: 'Fiş bastır',
   cashier: 'Kasa',
   products: 'Ürünler',
   addProduct: 'Ürün Ekle',
@@ -12,6 +14,7 @@ local.tr = {
   confirm: 'Onayla',
   addNewProduct: 'Yeni Ürün Ekle',
   productNotFound: 'Ürün bulunamadı',
+  checkSaveSuccess: '{id} numaralı satış kaydı yapıldı',
   // Products page
   product: 'Ürün',
   price: 'Fiyat',

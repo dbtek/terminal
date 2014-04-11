@@ -1,6 +1,8 @@
 if(!local) var local = {};
 
 local.en = {
+  language: 'Language',
+  autoPrint: 'Auto print checks',
   cashier: 'Cashier',
   products: 'Products',
   addProduct: 'Add Product',
@@ -12,6 +14,7 @@ local.en = {
   confirm: 'Confirm',
   addNewProduct: 'Add New Product',
   productNotFound: 'No products found',
+  checkSaveSuccess: 'Sale check {id} saved succesfully',
   // Products page
   product: 'Product',
   price: 'Price',
