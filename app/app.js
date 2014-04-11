@@ -47,3 +47,10 @@ app.directive('ngEnter', function() {
     });
   };
 });
+
+app.filter('replace',
+  function() {
+    return function(text, key, value) {
+      return text.replace(key, value);
+    }
+  });

@@ -31,7 +31,7 @@ ProductAddCtrl = function($scope, $rootScope, $routeParams, $location) {
       });
     }
     else
-      $scope.errorMessage = 'Lütfen geçerli bir fiyat bilgisi giriniz.';
+      $scope.errorMessage = $scope.strings.priceFieldNotNumber;
   };
 };
 
@@ -54,6 +54,6 @@ ProductEditCtrl = function($scope, $rootScope, $routeParams, $location) {
       $location.path('/product/list');
     }
     else
-      $scope.errorMessage = 'Lütfen geçerli bir fiyat bilgisi giriniz.';
+      $scope.errorMessage = $scope.strings.priceFieldNotNumber;
   };
 };
