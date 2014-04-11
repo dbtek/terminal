@@ -11,9 +11,9 @@
 	</div>
 	<div ng-if="products.length < 1">
 		<p class="alert alert-danger">
-			Ürün bulunamadı.
+			{{strings.productNotFound}}
 		</p>
-		<a href="#product/add" class="btn btn-primary">Yeni Ürün Ekle</a>
+		<a href="#product/add" class="btn btn-primary">{{strings.addNewProduct}}</a>
 	</div>
 
 	<div class="modal" id="billModal">
@@ -29,7 +29,7 @@
 							<div class="price">
 								{{bill.amount*bill.product.price}} <i class="fa fa-try"></i>
 								<p class="product">
-									{{bill.amount}} Adet {{ bill.product.name }}
+									{{strings.checkText | replace: '{amount}':bill.amount | replace: '{product}':bill.product.name}}
 								</p>
 							</div>
 						</div>
