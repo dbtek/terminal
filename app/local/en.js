@@ -27,7 +27,7 @@ local.en = {
   productPrice: 'Product Price',
   name: 'Name',
   productAddSuccess: '{product} is successfully added',
-  home: 'Anasayfa',
+  home: 'Cashier',
   priceFieldNotNumber: 'Please enter a valid price',
   // Product edit page
   updateProduct: 'Update Product',

@@ -11,7 +11,6 @@ var MainCtrl = function($scope, $webSql, $location, $cookies) {
     $scope.settings = defaultSettings;
 
   $scope.$watch('settings', function() {
-    console.log($scope.settings);
     if($scope.settings && $scope.settings.language) {
       $scope.strings = local[$scope.settings.language.key];
       $cookies.settings = JSON.stringify($scope.settings);
