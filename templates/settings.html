@@ -12,6 +12,13 @@
         </div>
       </div>
       <div class="form-group">
+        <label class="col-sm-6 control-label">{{strings.currency}}:</label>
+        <div class="col-sm-6">
+          <select class="form-control" ng-model="settings.currency" ng-options="currency.label for currency in currencies">
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
         <label class="col-sm-6 control-label">{{strings.autoPrint}}:</label>
         <div class="col-sm-6 form-control-static">
           <input type="checkbox" ng-model="settings.autoPrint">

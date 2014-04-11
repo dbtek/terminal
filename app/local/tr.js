@@ -3,6 +3,7 @@ if(!local) var local = {};
 local.tr = {
   language: 'Dil',
   autoPrint: 'Fiş bastır',
+  currency: 'Para birimi',
   cashier: 'Kasa',
   products: 'Ürünler',
   addProduct: 'Ürün Ekle',
