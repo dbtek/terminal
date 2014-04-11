@@ -1,4 +1,4 @@
-SettingsCtrl = function($scope, $rootScope) {
+SettingsCtrl = function($scope, $rootScope){
   $scope.checkBrowser();
   $rootScope.activePage = 'settings';
-}
+};

@@ -1,4 +1,10 @@
 <div ng-controller="CashierCtrl">
+	<div class="alert alert-success" ng-show="successMessage">
+		{{successMessage}}
+		<button type="button" class="btn btn-sm pull-right" ng-click="successMessage=''">&times;</button>
+		<div class="clearfix"></div>
+	</div>
+
 	<div class="col-lg-3 col-md-4 col-sm-6" ng-repeat="product in products">
 		<div class="thumbnail text-center">
 			<div class="price">
@@ -9,6 +15,7 @@
 			</button>
 		</div>
 	</div>
+
 	<div ng-if="products.length < 1">
 		<p class="alert alert-danger">
 			{{strings.productNotFound}}

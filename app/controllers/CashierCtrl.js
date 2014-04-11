@@ -6,12 +6,17 @@ CashierCtrl = function($scope, $rootScope, $window, $location) {
 
   $scope.sell = function() {
     $('#billModal').modal('hide');
-    $scope.DAO.addSale($scope.bill.product.id, $scope.bill.amount, function(results){
+    $scope.DAO.addSale($scope.bill.product.id, $scope.bill.amount, function(results) {
       // print the bill
-      $scope.$apply(function() {
-        $location.path('/bill/'+results.insertId)
-        $location.search('print','true');
-      });
+      if($scope.settings.autoPrint)
+        $scope.$apply(function() {
+          $location.path('/bill/'+results.insertId)
+          $location.search('print','true');
+        });
+      else {
+        $scope.successMessage = $scope.strings.checkSaveSuccess.replace('{id}', results.insertId);
+        $scope.$apply();
+      }
     });
   };
 };
