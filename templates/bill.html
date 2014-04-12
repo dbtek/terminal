@@ -1,7 +1,7 @@
 <div class="col-sm-2" ng-controller="BillCtrl">
   <div class="thumbnail text-center">
     <div class="price">
-      {{sale.amount*product.price}} <i class="{{settings.currency.icon}}" ng-class="'pull-left':settings.currency.left"></i>
+      {{sale.amount*product.price}} <i class="{{settings.currency.icon}}"></i>
       <p class="product">
         {{strings.checkText | replace: '{amount}':sale.amount | replace: '{product}':product.name}}
       </p>
