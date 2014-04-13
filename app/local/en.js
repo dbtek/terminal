@@ -21,6 +21,7 @@ local.en = {
   price: 'Price',
   productDeleteConfirm: 'Selected product will be deleted. This cannot be undone. Would you like to continue?',
   delete: 'Delete',
+  productDeleteSuccess: 'Product deleted successfully',
   // Product add page
   add: 'Add',
   productName: 'Product Name',
@@ -31,5 +32,6 @@ local.en = {
   priceFieldNotNumber: 'Please enter a valid price',
   // Product edit page
   updateProduct: 'Update Product',
-  update: 'Update'
+  update: 'Update',
+  productUpdateSuccess: 'Product updated successfully'
 }

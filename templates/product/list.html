@@ -1,6 +1,13 @@
 <div ng-controller="ProductListCtrl">
   <div class="page-header">
-    <h3>{{strings.products}}</h3>
+    <h3>
+      {{strings.products}}
+      <a href="#product/add" class="btn btn-primary pull-right">{{strings.addProduct}}</a>
+    </h3>
+  </div>
+  <div ng-if="alert.message" class="alert alert-{{alert.type}}">
+    {{alert.message}}
+    <button ng-if="!alert.nonclosable" type="button" class="btn btn-default btn-xs pull-right" ng-click="alert.message = null">&times;</button>
   </div>
   <div class="alert alert-danger notification fade in" ng-show="productIdToBeDeleted">
     <p>{{strings.productDeleteConfirm}}</p>
@@ -11,9 +18,13 @@
     </div>
     <div class="clearfix"></div>
   </div><!-- end alert -->
-  <table class="table table-hover table-striped">
+  <div ng-if="products.length < 1" class="alert alert-warning">
+    {{strings.productNotFound}}
+  </div>
+  <table ng-if="products.length > 0" class="table table-striped">
     <thead>
       <tr>
+        <th>#</th>
         <th>{{strings.product}}</th>
         <th>{{strings.price}}</th>
         <th class="actions">#</th>
@@ -21,6 +32,7 @@
     </thead>
     <tbody>
       <tr ng-repeat="product in products">
+        <td>{{$index+1}}</td>
         <td>{{product.name}}</td>
         <td>{{product.price}} <i class="{{settings.currency.icon}}"></i></td>
         <td class="actions">

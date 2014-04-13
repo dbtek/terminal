@@ -13,13 +13,13 @@
     <div class="form-group">
       <label class="col-sm-3 control-label">{{strings.name}}</label>
       <div class="col-sm-5">
-        <input type="text" class="form-control" placeholder="{{strings.productName}}" ng-model="product.name">
+        <input type="text" class="form-control" placeholder="{{strings.productName}}" ng-model="product.name" ng-enter="addProduct()">
       </div>
     </div>
     <div class="form-group">
       <label for="fiyat" class="col-sm-3 control-label">{{strings.price}}</label>
       <div class="col-sm-3">
-        <input type="text" class="form-control" placeholder="{{strings.productPrice}}" ng-model="product.price">
+        <input type="text" class="form-control" placeholder="{{strings.productPrice}}" ng-model="product.price" ng-enter="addProduct()">
       </div>
     </div>
     <div class="form-group">
