@@ -1,5 +1,6 @@
 #content {
   margin-top: 80px;
+  min-height: 80%;
 }
 i { font-size: 0.9em; }
 .price {
@@ -20,4 +21,8 @@ i { font-size: 0.9em; }
 .table .actions {
 	max-width: 40px;
 	text-align: center;
+}
+.footer {
+  text-align: right;
+  padding-right: 20px;
 }
