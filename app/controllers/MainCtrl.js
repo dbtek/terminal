@@ -21,13 +21,13 @@ var MainCtrl = function($scope, $webSql, $location, $cookies) {
     /**
      * Gets all products from the database and applies them on scope.
      */
-     getProducts: function(callback) {
+    getProducts: function(callback) {
       db.selectAll('product', function(results) {
         var products = [];
         for(i=0; i<results.rows.length; i++){
           products.push(results.rows.item(i));
         }
-        callback(products)
+        callback(products);
       });
     },
     getProductById: function(id, callback) {
@@ -47,9 +47,29 @@ var MainCtrl = function($scope, $webSql, $location, $cookies) {
     addSale: function(productId, amount, callback){
       db.insert('sale', {'productId': productId, 'amount': amount}, callback);
     },
-    getSale: function(id, callback){
+    getSaleById: function(id, callback){
       db.select('sale', {'id': id }, function(results) {
         callback(results.rows.item(0));
+      });
+    },
+    getSaleStatsByDate: function(callback) {
+      db.executeQuery('SELECT product.name as productName, sum(product.price*sale.amount) as value, sum(sale.amount) as saleAmount, DATE(sale.created) as date FROM sale ' +
+                      'JOIN product on sale.productId=product.id ' +
+                      'GROUP BY DATE(sale.created), product.id ', function(results) {
+        var stats = [];
+        for(i=0; i<results.rows.length; i++){
+          stats.push(results.rows.item(i));
+        }
+        callback(stats);
+      });
+    },
+    getSalesWhere: function(where, callback) {
+      db.select('sale', where, function(results) {
+        var sales = [];
+        for(i=0; i<results.rows.length; i++){
+          sales.push(results.rows.item(i));
+        }
+        callback(sales);
       });
     }
   };

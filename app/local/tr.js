@@ -33,5 +33,10 @@ local.tr = {
   // Product edit page
   updateProduct: 'Ürün Güncelle',
   update: 'Güncelle',
-  productUpdateSuccess: 'Ürün başarıyla güncellendi.'
+  productUpdateSuccess: 'Ürün başarıyla güncellendi.',
+  // stats page
+  stats: 'İstatistikler',
+  date: 'Tarih',
+  value: 'Değer',
+  saleStatsByDate: 'Tarihe Göre Satışlar'
 }
