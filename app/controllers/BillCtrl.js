@@ -1,5 +1,5 @@
 BillCtrl = function($scope, $routeParams, $location, $window) {
-  $scope.DAO.getSale($routeParams.saleId, function(sale){
+  $scope.DAO.getSaleById($routeParams.saleId, function(sale){
     $scope.sale = sale;
     $scope.$apply();
     $scope.DAO.getProductById(sale.productId, function(product){

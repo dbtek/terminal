@@ -27,6 +27,10 @@ app.config(function ($routeProvider, $locationProvider) {
     templateUrl: 'templates/settings.html'
   });
 
+  $routeProvider.when('/stats', {
+    templateUrl: 'templates/stats.html'
+  });
+
   $routeProvider.when('/browser-not-supported', {
     templateUrl: 'templates/browserNotSupported.html'
   });

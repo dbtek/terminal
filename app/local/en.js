@@ -33,5 +33,10 @@ local.en = {
   // Product edit page
   updateProduct: 'Update Product',
   update: 'Update',
-  productUpdateSuccess: 'Product updated successfully'
+  productUpdateSuccess: 'Product updated successfully',
+  // stats page
+  stats: 'Stats',
+  date: 'Date',
+  value: 'Value',
+  saleStatsByDate: 'Product Sales by Date'
 }
