@@ -1,13 +1,23 @@
 ProductListCtrl = function($scope, $rootScope, $routeParams, $location) {
   $scope.checkBrowser();
   $rootScope.activePage = 'product-list';
-  $scope.DAO.getProducts();
+  $scope.DAO.getProducts(function(products) {
+    $scope.products = products;
+    $scope.$apply();
+  });
 
   $scope.deleteProduct = function(id){
     if($scope.productIdToBeDeleted == id) {
       $scope.DAO.deleteProductById(id);
       $scope.productIdToBeDeleted = 0;
-      $scope.DAO.getProducts();
+      $scope.DAO.getProducts(function(products) {
+        $scope.products = products;
+        $scope.$apply();
+      });
+      $scope.alert = {
+        type: 'success',
+        message: $scope.strings.productDeleteSuccess
+      }
     }
     else {
       $scope.productIdToBeDeleted = id;
@@ -52,6 +62,10 @@ ProductEditCtrl = function($scope, $rootScope, $routeParams, $location) {
       $scope.DAO.updateProduct($scope.product.id, {'name': $scope.product.name});
       $scope.DAO.updateProduct($scope.product.id, {'price': $scope.product.price});
       $location.path('/product/list');
+      $rootScope.alert = {
+        type: 'success',
+        message: $scope.strings.productUpdateSuccess
+      }
     }
     else
       $scope.errorMessage = $scope.strings.priceFieldNotNumber;

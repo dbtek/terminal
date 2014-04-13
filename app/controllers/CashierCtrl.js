@@ -1,7 +1,10 @@
 CashierCtrl = function($scope, $rootScope, $window, $location) {
   $scope.checkBrowser();
   $rootScope.activePage = 'cashier';
-	$scope.DAO.getProducts();
+  $scope.DAO.getProducts(function(products) {
+    $scope.products = products;
+    $scope.$apply();
+  });
   $scope.bill = {};
 
   $scope.sell = function() {

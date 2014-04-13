@@ -21,13 +21,13 @@ var MainCtrl = function($scope, $webSql, $location, $cookies) {
     /**
      * Gets all products from the database and applies them on scope.
      */
-     getProducts: function() {
+     getProducts: function(callback) {
       db.selectAll('product', function(results) {
-        $scope.products = [];
+        var products = [];
         for(i=0; i<results.rows.length; i++){
-          $scope.products.push(results.rows.item(i));
+          products.push(results.rows.item(i));
         }
-        $scope.$apply();
+        callback(products)
       });
     },
     getProductById: function(id, callback) {
