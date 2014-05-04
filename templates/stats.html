@@ -1,28 +1,32 @@
 <div ng-controller="StatsCtrl">
-  <flot dataset="data" options="chartoptions"></flot>
   <div class="page-header">
     <h3>{{strings.stats}}</h3>
   </div>
 
   <h4>{{strings.saleStatsByDate}}</h4>
-  <table class="table table-striped">
-    <thead>
-      <tr>
-        <th>#</th>
-        <th>{{strings.date}}</th>
-        <th>{{strings.product}}</th>
-        <th>{{strings.amount}}</th>
-        <th>{{strings.value}}</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr ng-repeat="stat in stats">
-        <td>{{$index+1}}</td>
-        <td>{{stat.date | date: 'dd.MM.yyyy'}}</td>
-        <td>{{stat.productName}}</td>
-        <td>{{stat.saleAmount}}</td>
-        <td>{{stat.value}} <i class="{{settings.currency.icon}}"></i></td>
-      </tr>
-    </tbody>
-  </table>
+  <div class="col-sm-8">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>{{strings.date}}</th>
+          <th>{{strings.product}}</th>
+          <th>{{strings.amount}}</th>
+          <th>{{strings.value}}</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="sale in sales">
+          <td>{{$index+1}}</td>
+          <td>{{sale.date | date: 'dd.MM.yyyy'}}</td>
+          <td>{{sale.productName}}</td>
+          <td>{{sale.saleAmount}}</td>
+          <td>{{sale.value}} <i class="{{settings.currency.icon}}"></i></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="col-sm-4">
+    <flot dataset="dateStatChart.dataset" options="dateStatChart.options" width="100%" height="150px"></flot>
+  </div>
 </div>

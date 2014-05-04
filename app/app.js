@@ -1,6 +1,6 @@
 'use strict';
 
-var app = angular.module('terminal', ['ngRoute','angular-websql','ngCookies']);
+var app = angular.module('terminal', ['ngRoute','angular-websql','ngCookies','angular-flot']);
 
 app.config(function ($routeProvider, $locationProvider) {
   $routeProvider.when('/', {
