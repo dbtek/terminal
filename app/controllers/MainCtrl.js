@@ -53,7 +53,7 @@ var MainCtrl = function($scope, $webSql, $location, $cookies) {
       });
     },
     getSaleStatsByDate: function(callback) {
-      db.executeQuery('SELECT product.name as productName, sum(product.price*sale.amount) as value, sum(sale.amount) as saleAmount, DATE(sale.created) as date FROM sale ' +
+      db.executeQuery('SELECT product.name as productName, product.id as productId, sum(product.price*sale.amount) as value, sum(sale.amount) as saleAmount, DATE(sale.created) as date FROM sale ' +
                       'JOIN product on sale.productId=product.id ' +
                       'GROUP BY DATE(sale.created), product.id ', function(results) {
         var stats = [];
