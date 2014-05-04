@@ -22,7 +22,7 @@ Products and sale details are stored on browser's web sql database. Language and
 Frontend is built on Bootstrap and Lumen theme by Bootswatch.
 
 ##Locale
-App built as multilingual. Currently has Turkish and English translations. There is also the currency support. Of course, there can be more locales and currencies. See [translations](tree/master/app/local).
+App built as multilingual. Currently has Turkish and English translations. There is also the currency support. Of course, there can be more locales and currencies. See [translations](http://github.com/dbtek/terminal/tree/master/app/local).
 
 ##Author
 Ismail Demirbilek - [@dbtek](http://twitter.com/dbtek)
