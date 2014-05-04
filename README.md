@@ -15,7 +15,7 @@ Simply go to [dbtek.github.io/terminal](http://dbtek.github.io/terminal) and sta
 - Sale stats, see sale stats of products.
 
 ##Technical
-It's an app build on [Angular JS](http://angularjs.org). Uses bunch of modules such as [angular-websql](https//github.com/dbtek/angular-websql), [angular-flot](https://github.com/develersrl/angular-flot), angular-route and angular-cookies.
+It's an app build on [Angular JS](http://angularjs.org). Uses bunch of modules such as [angular-websql](https://github.com/dbtek/angular-websql), [angular-flot](https://github.com/develersrl/angular-flot), angular-route and angular-cookies.
 
 Products and sale details are stored on browser's web sql database. Language and other settings are stored on local storage.
 
