@@ -1,0 +1,39 @@
+<div>
+  <div class="page-header">
+    <h3>
+      {{strings.products}}
+      <a href="#/" class="btn btn-default pull-right">{{strings.addProductToCart}}</a>
+      <a href="#/" class="btn btn-primary pull-right">{{strings.complete}}</a>
+    </h3>
+  </div>
+  <div ng-if="alert.message" class="alert alert-{{alert.type}}">
+    {{alert.message}}
+    <button ng-if="!alert.nonclosable" type="button" class="btn btn-default btn-xs pull-right" ng-click="alert.message = null">&times;</button>
+  </div>
+  <table ng-if="products.length > 0" class="table table-striped">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>{{strings.product}}</th>
+        <th>{{strings.price}}</th>
+        <th>{{strings.amount}}</th>
+        <th>{{strings.total}}</th>
+        <th class="actions">#</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="product in products">
+        <td>{{$index+1}}</td>
+        <td>{{product.name}}</td>
+        <td>{{product.price}} <i class="{{settings.currency.icon}}"></i></td>
+        <td>{{product.amount}}</td>
+        <td>{{product.price * product.amount}} <i class="{{settings.currency.icon}}"></i></td>
+        <td class="actions">
+          <button type="button" class="btn btn-default" ng-click="increaseAmount(product)"><span class="glyphicon glyphicon-menu-up"></span></button>
+          <button type="button" class="btn btn-default" ng-click="decreaseAmount(product)"><span class="glyphicon glyphicon-menu-down"></span></button>
+          <button type="button" class="btn btn-danger" ng-click="deleteProduct(product)"><span class="glyphicon glyphicon-trash"></span></button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

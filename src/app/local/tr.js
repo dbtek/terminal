@@ -3,6 +3,7 @@ module.exports = {
   autoPrint: 'Fiş bastır',
   currency: 'Para birimi',
   cashier: 'Kasa',
+  cart: 'Sepet',
   products: 'Ürünler',
   addProduct: 'Ürün Ekle',
   settings: 'Ayarlar',
@@ -14,6 +15,9 @@ module.exports = {
   addNewProduct: 'Yeni Ürün Ekle',
   productNotFound: 'Kayıtlı ürün bulunamadı. Lütfen yeni ürün ekleyiniz.',
   checkSaveSuccess: '{id} numaralı satış kaydı yapıldı',
+  // Cart page
+  complete: 'Tamamla ve bastır',
+  addProductToCart: 'Sepete ürün ekle',
   // Products page
   product: 'Ürün',
   price: 'Fiyat',

@@ -3,6 +3,7 @@ module.exports = {
   autoPrint: 'Auto print checks',
   currency: 'Currency',
   cashier: 'Cashier',
+  cart: 'Cart',
   products: 'Products',
   addProduct: 'Add Product',
   settings: 'Settings',
@@ -14,6 +15,9 @@ module.exports = {
   addNewProduct: 'Add New Product',
   productNotFound: 'No products found',
   checkSaveSuccess: 'Sale check {id} saved succesfully',
+  // Cart page
+  complete: 'Complete & print',
+  addProductToCart: 'Add products to cart',
   // Products page
   product: 'Product',
   price: 'Price',

@@ -54,9 +54,28 @@ angular.module('terminal.services.DAO', [
           'null': 'NOT NULL'
         }
       });
+
+      // Create sale table
+      db.createTable('cart', {
+        'id':{
+          'type': 'INTEGER',
+          'null': 'NOT NULL',
+          'primary': true,
+          'auto_increment': true
+        },
+        'productId':{
+          'type': 'INTEGER',
+          'null': 'NOT NULL'
+        },
+        'amount': {
+          'type': 'INTEGER',
+          'null': 'NOT NULL'
+        }
+      });
+
     }
 
-    return {
+    var api = {
       getDB: function() {
         return db;
       },
@@ -92,6 +111,36 @@ angular.module('terminal.services.DAO', [
         db.del('product', {'id': id}, callback);
       },
 
+      getCart: function(callback) {
+        db.selectAll('cart', function(results) {
+          var products = [];
+          for(i=0; i<results.rows.length; i++){
+            products.push(results.rows.item(i));
+          }
+          callback(products);
+        });
+      },
+
+      addProductToCart: function(productId, amount, callback){
+        db.select('cart', {'productId': productId}, function(results) {
+          if(results.rows.length > 0) {
+            res = results.rows.item(0);
+            api.updateProductOnCart(res.id, {'amount': res.amount + amount}, callback);
+          }
+          else {
+            db.insert('cart', {'productId': productId, 'amount': amount}, callback);
+          }
+        })
+      },
+
+      deleteProductFromCartById: function(id, callback) {
+        db.del('cart', {'id': id}, callback);
+      },
+
+      updateProductOnCart: function(id, fields, callback) {
+        db.update('cart', fields, {'id': id}, callback);
+      },
+
       addSale: function(productId, amount, callback){
         db.insert('sale', {'productId': productId, 'amount': amount}, callback);
       },
@@ -124,4 +173,6 @@ angular.module('terminal.services.DAO', [
         });
       }
     };
+
+    return api;
   })

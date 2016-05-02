@@ -30,6 +30,10 @@ var app = angular.module('terminal', [
     .when('/product/edit/:productId', {
       templateUrl: 'templates/product/edit.html'
     })
+    .when('/cart', {
+      templateUrl: 'templates/cart.html',
+      controller: 'CartCtrl'
+    })
     .when('/bill/:saleId', {
       templateUrl: 'templates/bill.html'
     })

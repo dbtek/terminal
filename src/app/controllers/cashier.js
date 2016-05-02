@@ -1,5 +1,4 @@
 var angular = require('angular');
-$ = require('jquery');
 
 module.exports = 'terminal.controllers.CashierCtrl'
 angular.module('terminal.controllers.CashierCtrl', [])
@@ -13,17 +12,17 @@ angular.module('terminal.controllers.CashierCtrl', [])
 
     $scope.sell = function() {
       $('#billModal').modal('hide');
-      DAO.addSale($scope.bill.product.id, $scope.bill.amount, function(results) {
-        // print the bill
-        if($scope.settings.autoPrint)
+      // print the bill
+      if($scope.settings.autoPrint) {
+        DAO.addSale($scope.bill.product.id, $scope.bill.amount, function(results) {
           $scope.$apply(function() {
             $location.path('/bill/'+results.insertId)
             $location.search('print','true');
           });
-        else {
-          $scope.successMessage = $scope.strings.checkSaveSuccess.replace('{id}', results.insertId);
-          $scope.$apply();
-        }
-      });
+        });
+      }
+      else {
+        DAO.addProductToCart($scope.bill.product.id, $scope.bill.amount);
+      }
     };
   });
