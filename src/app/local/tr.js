@@ -1,6 +1,4 @@
-if(!local) var local = {};
-
-local.tr = {
+module.exports = {
   language: 'Dil',
   autoPrint: 'Fiş bastır',
   currency: 'Para birimi',

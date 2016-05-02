@@ -1,0 +1,56 @@
+{
+  "name": "terminal",
+  "version": "0.1.0",
+  "description": "Simple point of sale application uses web sql.",
+  "main": " ",
+  "dependencies": {},
+  "devDependencies": {
+    "angular": "^1.5.5",
+    "angular-cookies": "^1.5.5",
+    "angular-flot": "0.0.16",
+    "angular-route": "^1.5.5",
+    "bootstrap": "^3.3.6",
+    "browser-sync": "^2.12.5",
+    "browserify": "^13.0.0",
+    "flot": "^0.8.0-alpha",
+    "font-awesome": "^4.6.1",
+    "fontawesome": "^4.5.0",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^3.1.0",
+    "gulp-clean": "^0.3.2",
+    "gulp-concat": "^2.6.0",
+    "gulp-imagemin": "^2.4.0",
+    "gulp-jshint": "^2.0.0",
+    "gulp-livereload": "^3.8.1",
+    "gulp-minify-css": "^1.2.4",
+    "gulp-ng-annotate": "^2.0.0",
+    "gulp-notify": "^2.2.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^2.3.1",
+    "gulp-streamify": "^1.0.2",
+    "gulp-uglify": "^1.5.3",
+    "gulp-util": "^3.0.7",
+    "jquery": "^2.2.3",
+    "jshint": "^2.9.2",
+    "vinyl-source-stream": "^1.1.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dbtek/terminal.git"
+  },
+  "keywords": [
+    "simple",
+    "pos",
+    "terminal"
+  ],
+  "author": "İsmail Demirbilek <ce.demirbilek@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dbtek/terminal/issues"
+  },
+  "homepage": "https://github.com/dbtek/terminal#readme",
+  "browser": "./dist/app.js"
+}

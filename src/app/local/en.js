@@ -1,6 +1,4 @@
-if(!local) var local = {};
-
-local.en = {
+module.exports = {
   language: 'Language',
   autoPrint: 'Auto print checks',
   currency: 'Currency',

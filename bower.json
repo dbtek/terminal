@@ -8,9 +8,7 @@
   "license": "MIT",
   "private": true,
   "dependencies": {
-    "angular-route": "~1.2.15",
     "angular-websql": "https://github.com/dbtek/angular-websql/archive/master.zip",
-    "bootstrap": "~3.1.1",
-    "fontawesome": "~4.0.3"
+    "bootswatch-dist": "lumen"
   }
 }
