@@ -2,12 +2,12 @@ var angular = require('angular');
 
 module.exports = 'terminal.controllers.StatsCtrl'
 angular.module('terminal.controllers.StatsCtrl', [])
-  .controller('StatsCtrl', function($scope, $rootScope) {
+  .controller('StatsCtrl', function($scope, $rootScope, DAO) {
     $rootScope.activePage = 'stats';
     $scope.charts = [];
     $scope.datasets = [];
 
-    $scope.DAO.getSaleStatsByDate(function(sales) {
+    DAO.getSaleStatsByDate(function(sales) {
       $scope.sales = sales;
 
       var dataset = {};

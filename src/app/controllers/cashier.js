@@ -3,9 +3,9 @@ $ = require('jquery');
 
 module.exports = 'terminal.controllers.CashierCtrl'
 angular.module('terminal.controllers.CashierCtrl', [])
-  .controller('CashierCtrl', function($scope, $rootScope, $window, $location) {
+  .controller('CashierCtrl', function($scope, $rootScope, $window, $location, DAO) {
     $rootScope.activePage = 'cashier';
-    $scope.DAO.getProducts(function(products) {
+    DAO.getProducts(function(products) {
       $scope.products = products;
       $scope.$apply();
     });
@@ -13,7 +13,7 @@ angular.module('terminal.controllers.CashierCtrl', [])
 
     $scope.sell = function() {
       $('#billModal').modal('hide');
-      $scope.DAO.addSale($scope.bill.product.id, $scope.bill.amount, function(results) {
+      DAO.addSale($scope.bill.product.id, $scope.bill.amount, function(results) {
         // print the bill
         if($scope.settings.autoPrint)
           $scope.$apply(function() {

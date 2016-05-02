@@ -2,18 +2,18 @@ var angular = require('angular');
 
 module.exports = 'terminal.controllers.ProductCtrl'
 angular.module('terminal.controllers.ProductCtrl', [])
-  .controller('ProductListCtrl', function($scope, $rootScope, $routeParams, $location) {
+  .controller('ProductListCtrl', function($scope, $rootScope, $routeParams, $location, DAO) {
     $rootScope.activePage = 'product-list';
-    $scope.DAO.getProducts(function(products) {
+    DAO.getProducts(function(products) {
       $scope.products = products;
       $scope.$apply();
     });
 
     $scope.deleteProduct = function(id){
       if($scope.productIdToBeDeleted == id) {
-        $scope.DAO.deleteProductById(id);
+        DAO.deleteProductById(id);
         $scope.productIdToBeDeleted = 0;
-        $scope.DAO.getProducts(function(products) {
+        DAO.getProducts(function(products) {
           $scope.products = products;
           $scope.$apply();
         });
@@ -28,16 +28,15 @@ angular.module('terminal.controllers.ProductCtrl', [])
     }
   })
   // add controller
-  .controller('ProductAddCtrl', function($scope, $rootScope, $routeParams, $location) {
-    $scope.checkBrowser();
+  .controller('ProductAddCtrl', function($scope, $rootScope, $routeParams, $location, DAO) {
     $scope.product = {};
     $rootScope.activePage = 'product-add';
 
     $scope.addProduct = function() {
       if($scope.product.price >= 0) {
         $scope.errorMessage = null;
-        $scope.DAO.addProduct($scope.product.name, $scope.product.price, function(results) {
-          $scope.DAO.getProductById(results.insertId, function(product){
+        DAO.addProduct($scope.product.name, $scope.product.price, function(results) {
+          DAO.getProductById(results.insertId, function(product){
             $scope.addedProduct = product;
             $scope.$apply();
           });
@@ -48,11 +47,10 @@ angular.module('terminal.controllers.ProductCtrl', [])
     };
   })
   // edit controller
-  .controller('ProductEditCtrl', function($scope, $rootScope, $routeParams, $location) {
-    $scope.checkBrowser();
+  .controller('ProductEditCtrl', function($scope, $rootScope, $routeParams, $location, DAO) {
     $rootScope.activePage = 'product-edit';
 
-    $scope.DAO.getProductById($routeParams.productId, function(product) {
+    DAO.getProductById($routeParams.productId, function(product) {
       $scope.product = angular.copy(product);
       $scope.$apply();
     });
@@ -62,8 +60,8 @@ angular.module('terminal.controllers.ProductCtrl', [])
     $scope.saveProduct = function(){
       if($scope.product.price >= 0) {
         $scope.errorMessage = null;
-        $scope.DAO.updateProduct($scope.product.id, {'name': $scope.product.name});
-        $scope.DAO.updateProduct($scope.product.id, {'price': $scope.product.price});
+        DAO.updateProduct($scope.product.id, {'name': $scope.product.name});
+        DAO.updateProduct($scope.product.id, {'price': $scope.product.price});
         $location.path('/product/list');
         $rootScope.alert = {
           type: 'success',
