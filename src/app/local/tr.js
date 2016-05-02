@@ -18,6 +18,7 @@ module.exports = {
   // Cart page
   complete: 'Tamamla ve bastır',
   addProductToCart: 'Sepete ürün ekle',
+  total: 'Toplam',
   // Products page
   product: 'Ürün',
   price: 'Fiyat',

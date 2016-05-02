@@ -17,6 +17,7 @@ module.exports = {
   checkSaveSuccess: 'Sale check {id} saved succesfully',
   // Cart page
   complete: 'Complete & print',
+  total: 'Total',
   addProductToCart: 'Add products to cart',
   // Products page
   product: 'Product',
