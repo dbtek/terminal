@@ -31,7 +31,7 @@
 	        <h4 class="modal-title">{{strings.sale}}: {{bill.product.name}}</h4>
 	      </div>
 	      <div class="modal-body">
-					<div class="col-sm-6 col-sm-offset-3">
+					<div class="col-sm-6">
 						<div class="thumbnail text-center">
 							<div class="price">
 								{{bill.amount*bill.product.price}} <i class="{{settings.currency.icon}}"></i>
@@ -41,17 +41,17 @@
 							</div>
 						</div>
 					</div>
-					<div class="clearfix"></div>
-					<div class="form-horizontal">
-						<div class="form-group">
-							<label class="col-sm-5 control-label">{{strings.amount}}:</label>
-							<div class="col-sm-4">
-								<input type="number" class="form-control" ng-model="bill.amount" min="0" autofocus ng-enter="sell()">
+					<div class="amount-control col-sm-4 col-sm-offset-1 text-center">
+						<div class="btn-group-vertical">
+							<button class="btn btn-default up" ng-click="bill.amount = bill.amount+1"><i class="glyphicon glyphicon-menu-up"></i></button>
+							<input type="number" class="form-control amount-display text-center" ng-model="bill.amount" min="1" ng-enter="sell()">
+							<button class="btn btn-default down" ng-click="bill.amount = bill.amount-1"><i class="glyphicon glyphicon-menu-down"></i></button>
 						</div>
 						<div class="clearfix"></div>
 					</div>
 					<div class="clearfix"></div>
 	      </div>
+				<div class="clearfix"></div>
 	      <div class="modal-footer">
 	        <button type="button" class="btn btn-default" data-dismiss="modal">{{strings.cancel}}</button>
 	        <button type="button" class="btn btn-primary" ng-click="sell()">{{strings.confirm}}</button>
