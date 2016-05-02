@@ -9,15 +9,15 @@ require('bootstrap');
 module.exports = 'terminal'
 var app = angular.module('terminal', [
   'angular-flot',
-  require('../assets/lib/angular-websql'),
   require('angular-route'),
   require('angular-cookies'),
+  require('./services'),
   require('./controllers'),
   require('./directives'),
   require('./filters')
-]);
-
-app.config(function ($routeProvider, $locationProvider) {
+])
+// config phase
+.config(function ($routeProvider, $locationProvider) {
   $routeProvider.when('/', {
       templateUrl: 'templates/cashier.html'
     })
@@ -43,4 +43,12 @@ app.config(function ($routeProvider, $locationProvider) {
       templateUrl: 'templates/browserNotSupported.html'
     })
     .otherwise({redirectTo: '/'});
-});
+})
+// run phase
+
+.run(function($rootScope, $location, DAO) {
+  $rootScope.$on('$routeChangeSuccess', function() {
+    if(typeof(DAO.getDB()) == 'undefined') // redirect to error page
+      $location.path('/browser-not-supported');
+  });
+})

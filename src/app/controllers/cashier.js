@@ -4,7 +4,6 @@ $ = require('jquery');
 module.exports = 'terminal.controllers.CashierCtrl'
 angular.module('terminal.controllers.CashierCtrl', [])
   .controller('CashierCtrl', function($scope, $rootScope, $window, $location) {
-    $scope.checkBrowser();
     $rootScope.activePage = 'cashier';
     $scope.DAO.getProducts(function(products) {
       $scope.products = products;

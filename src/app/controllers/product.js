@@ -3,7 +3,6 @@ var angular = require('angular');
 module.exports = 'terminal.controllers.ProductCtrl'
 angular.module('terminal.controllers.ProductCtrl', [])
   .controller('ProductListCtrl', function($scope, $rootScope, $routeParams, $location) {
-    $scope.checkBrowser();
     $rootScope.activePage = 'product-list';
     $scope.DAO.getProducts(function(products) {
       $scope.products = products;
