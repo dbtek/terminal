@@ -8,9 +8,7 @@ require('bootstrap');
 
 module.exports = 'terminal'
 var app = angular.module('terminal', [
-  'angular-flot',
   require('angular-route'),
-  require('angular-cookies'),
   require('./services'),
   require('./controllers'),
   require('./directives'),

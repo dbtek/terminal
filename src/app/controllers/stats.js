@@ -1,7 +1,9 @@
 var angular = require('angular');
 
 module.exports = 'terminal.controllers.StatsCtrl'
-angular.module('terminal.controllers.StatsCtrl', [])
+angular.module('terminal.controllers.StatsCtrl', [
+    'angular-flot'
+  ])
   .controller('StatsCtrl', function($scope, $rootScope, DAO) {
     $rootScope.activePage = 'stats';
     $scope.charts = [];
